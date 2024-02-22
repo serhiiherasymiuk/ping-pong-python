@@ -1,21 +1,15 @@
 import pygame
 
+WHITE = (255, 255, 255)
+
 
 class Scoreboard:
-    def __init__(self, x, y, font_size, font_color):
-        self.x = x
-        self.y = y
-        self.font_size = font_size
-        self.font_color = font_color
-        self.score = 0
-        self.font = pygame.font.Font(None, self.font_size)
-
-    def increase_score(self):
-        self.score += 1
-
-    def reset_score(self):
-        self.score = 0
+    def __init__(self):
+        self.player_score = 0
+        self.opponent_score = 0
+        self.font = pygame.font.Font(None, 36)
 
     def draw(self, screen):
-        score_text = self.font.render(f"Score: {self.score}", True, self.font_color)
-        screen.blit(score_text, (self.x, self.y))
+        score_text = f"Player: {self.player_score}  Opponent: {self.opponent_score}"
+        text = self.font.render(score_text, True, WHITE)
+        screen.blit(text, (10, 10))
